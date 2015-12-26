@@ -41,7 +41,7 @@ with ix.searcher() as searcher:
 		proximty_query = "\"" + _string + "\"" + '~' + str((1+distance)*3)
 		query = parser.parse(proximty_query)
 
-	print(query)
+	# print(query)
 	print(">>>>>>OUTPUT start<<<<<<")
 	results = searcher.search(query)
 	for result in results:
