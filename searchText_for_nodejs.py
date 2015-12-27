@@ -43,7 +43,7 @@ with ix.searcher() as searcher:
 
 	# print(query)
 	print(">>>>>>OUTPUT start<<<<<<")
-	results = searcher.search(query)
+	results = searcher.search(query, limit=None)
 	for result in results:
 		print(">>>>>> data start:")
 
