@@ -45,11 +45,14 @@ function submit() {
 						'<div id="modal' + i + '" class="modal"></div>');
 					$('#card' + i).append('<div class="card-content white-text" id="cardContent' + i + '""></div>').append(
 						'<div class="card-action" id="action' + i + '""></div>');
-					$('#cardContent' + i).append('<span class="card-title">' + data[i].title + '</span>').append(
+					$('#cardContent' + i).append('<span class="card-title">' + 
+						data[i].title + '</span>').append(
 						'<p>' + data[i].content + '</p>');
-					$('#action' + i).append('<a class="waves-effect waves-light btn modal-trigger" href="#modal' + i + '" id="dialog' + i + '"> ' + '看全文</a>');
+					$('#action' + i).append('<a class="waves-effect waves-light btn modal-trigger" href="#modal' 
+						+ i + '" id="dialog' + i + '"> ' + '看全文</a>');
 					// popup dialog
-					$('#modal' + i).append('<div class="modal-content" id="modalText' + i + '"></div>');
+					$('#modal' + i).append('<div class="modal-content" id="modalText' +
+					 i + '"></div>');
 					$('#modalText' + i).append('<h4>' + data[i].title + '</h4>').append(
 						'<p>' + data[i].content + '</p>');
 				}
