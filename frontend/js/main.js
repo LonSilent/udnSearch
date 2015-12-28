@@ -38,7 +38,13 @@ function submit() {
 			if (text[0] === "") {
 				console.log(".....");
 				$('#cardArea').append('<h4>' + '請輸入query' + '</h4>');
-			} else {
+			} 
+			else if(data.length === undefined){
+				$('#cardArea').append('<h4>' + '查無結果，請重新輸入query' + '</h4>');
+			}
+			else {
+				// console.log(data.length);
+				$('#cardArea').append('<p>總共有<strong>' + data.length + '</strong>筆資料符合' + string + '的搜尋結果</p>');
 				for (var i = 0; i < data.length; i++) {
 					// card content
 					$('#cardArea').append('<div class="card blue-grey darken-1" id="card' + i + '"></div>').append(
@@ -47,6 +53,8 @@ function submit() {
 						'<div class="card-action" id="action' + i + '""></div>');
 					$('#cardContent' + i).append('<span class="card-title">' + 
 						data[i].title + '</span>').append(
+						'<span class="sub_title">' + data[i].sub_title + '</span>').append(
+						'<span class="author">' + data[i].author + '</span>').append(
 						'<p>' + data[i].content + '</p>');
 					$('#action' + i).append('<a class="waves-effect waves-light btn modal-trigger" href="#modal' 
 						+ i + '" id="dialog' + i + '"> ' + '看全文</a>');

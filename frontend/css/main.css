@@ -12,3 +12,20 @@ body {
 .highlight {
 	color: #FF6F00;
 }
+
+p {
+	font-size: 16px;
+}
+
+strong{
+	font-weight: bold;
+}
+
+.sub_title{
+	margin:0 20px;
+	font-size: 18px;
+}
+
+.author{
+	font-size:16px;
+}

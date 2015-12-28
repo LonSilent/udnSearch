@@ -1,9 +1,11 @@
 from whoosh.analysis import Tokenizer,Token
 import jieba
+
 class ChineseTokenizer(Tokenizer):  
 	def __call__(self, value, positions=False, chars=False,keeporiginal=False, removestops=True,start_pos=0, start_char=0, mode='', **kwargs):  
 		t = Token(positions, chars, removestops=removestops, mode=mode,  
-            **kwargs)  
+            **kwargs)
+		jieba.load_userdict('userdict.txt')
 		seglist=jieba.cut(value,cut_all=False)
 		for w in seglist:  
 			t.original = t.text = w  
