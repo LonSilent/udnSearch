@@ -44,6 +44,9 @@ with ix.searcher() as searcher:
 	# print(query)
 	print(">>>>>>OUTPUT start<<<<<<")
 	results = searcher.search(query, limit=None)
+	results.fragmenter.maxchars = 100
+	# Show more context before and after
+	results.fragmenter.surround = 50
 	for result in results:
 		print(">>>>>> data start:")
 

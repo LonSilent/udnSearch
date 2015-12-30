@@ -84,7 +84,7 @@ function submit() {
 						data[i].title + '</span>').append(
 						'<span class="sub_title">' + data[i].sub_title + '</span>').append(
 						'<span class="author">' + data[i].author + '</span>').append(
-						'<p>' + data[i].highlights + '...</p>');
+						'<p>...' + data[i].highlights + '...</p>');
 					$('#action' + i).append('<a class="waves-effect waves-light btn modal-trigger" href="#modal' + i + '" id="dialog' + i + '"> ' + '看全文</a>');
 					// popup dialog
 					$('#modal' + i).append('<div class="modal-content" id="modalText' +

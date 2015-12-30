@@ -37,6 +37,10 @@ with ix.searcher() as searcher:
 
 	print(query)
 	results = searcher.search(query)
+	# Allow larger fragments
+	results.fragmenter.maxchars = 100
+	# Show more context before and after
+	results.fragmenter.surround = 30
 	for result in results:
 		print(result["title"])
 		print(result.highlights("content"))	
