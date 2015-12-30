@@ -63,5 +63,9 @@ with ix.searcher() as searcher:
 		print(result["content"])
 		print(">>>>>> content end:")
 
+		print(">>>>>> highlights start:")
+		print(result.highlights("content"))
+		print(">>>>>> highlights end:")
+
 		print(">>>>>> data end:")
 	print(">>>>>>OUTPUT end<<<<<<")

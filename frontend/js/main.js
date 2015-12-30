@@ -1,5 +1,25 @@
 $('#toSearch').attr('required');
 
+function occurrences(string, subString, allowOverlapping) {
+
+	string += "";
+	subString += "";
+	if (subString.length <= 0) return (string.length + 1);
+
+	var n = 0,
+		pos = 0,
+		step = allowOverlapping ? 1 : subString.length;
+
+	while (true) {
+		pos = string.indexOf(subString, pos);
+		if (pos >= 0) {
+			++n;
+			pos += step;
+		} else break;
+	}
+	return n;
+}
+
 function submit() {
 	$('#cardArea').empty()
 	$('#cardArea').append('<div class="preloader-wrapper big active"id="circle">' +
@@ -38,30 +58,40 @@ function submit() {
 			if (text[0] === "") {
 				console.log(".....");
 				$('#cardArea').append('<h4>' + '請輸入query' + '</h4>');
-			} 
-			else if(data.length === undefined){
+			} else if (data.length === undefined) {
 				$('#cardArea').append('<h4>' + '查無結果，請重新輸入query' + '</h4>');
-			}
-			else {
+			} else {
 				// console.log(data.length);
 				$('#cardArea').append('<p>總共有<strong>' + data.length + '</strong>筆資料符合' + string + '的搜尋結果</p>');
+				if (text.length === 1) {
+					var queryOcurrence = 0;
+					for (var i = 0; i < data.length; i++) {
+						queryOcurrence += occurrences(data[i].content, text[0], true);
+						queryOcurrence += occurrences(data[i].title, text[0], true);
+						queryOcurrence += occurrences(data[i].sub_title, text[0], true);
+						queryOcurrence += occurrences(data[i].author, text[0], true);
+					}
+					console.log(queryOcurrence);
+					$('#cardArea').append('<p>總共有<strong>' + queryOcurrence + '</strong>個' + text[0] + '出現在文本</p>');
+				}
 				for (var i = 0; i < data.length; i++) {
 					// card content
 					$('#cardArea').append('<div class="card blue-grey darken-1" id="card' + i + '"></div>').append(
 						'<div id="modal' + i + '" class="modal"></div>');
 					$('#card' + i).append('<div class="card-content white-text" id="cardContent' + i + '""></div>').append(
 						'<div class="card-action" id="action' + i + '""></div>');
-					$('#cardContent' + i).append('<span class="card-title">' + 
+					$('#cardContent' + i).append('<span class="card-title">' +
 						data[i].title + '</span>').append(
 						'<span class="sub_title">' + data[i].sub_title + '</span>').append(
 						'<span class="author">' + data[i].author + '</span>').append(
-						'<p>' + data[i].content + '</p>');
-					$('#action' + i).append('<a class="waves-effect waves-light btn modal-trigger" href="#modal' 
-						+ i + '" id="dialog' + i + '"> ' + '看全文</a>');
+						'<p>' + data[i].highlights + '...</p>');
+					$('#action' + i).append('<a class="waves-effect waves-light btn modal-trigger" href="#modal' + i + '" id="dialog' + i + '"> ' + '看全文</a>');
 					// popup dialog
 					$('#modal' + i).append('<div class="modal-content" id="modalText' +
-					 i + '"></div>');
+						i + '"></div>');
 					$('#modalText' + i).append('<h4>' + data[i].title + '</h4>').append(
+						'<h5>' + data[i].sub_title + '</h5>').append(
+						'<h6>' + data[i].author + '</h6>').append(
 						'<p>' + data[i].content + '</p>');
 				}
 

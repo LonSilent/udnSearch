@@ -20,11 +20,13 @@ module.exports = stdout => {
 			var subTitle = data.split('>>>>>> sub_title start:\n')[1].split('>>>>>> sub_title end:\n')[0];
 			var author = data.split('>>>>>> author start:\n')[1].split('>>>>>> author end:\n')[0];
 			var content = data.split('>>>>>> content start:\n')[1].split('>>>>>> content end:\n')[0];
+			var highlights = data.split('>>>>>> highlights start:\n')[1].split('>>>>>> highlights end:\n')[0];
 			return {
 				title: title.replace(/\n/g, ''),
 				sub_title: subTitle.replace(/\n/g, ''),
 				author: author.replace(/\n/g, ''),
-				content: content.replace(/\n/g, '<br>')
+				content: content.replace(/\n/g, '<br>'),
+				highlights: highlights.replace(/\n/g, ''),
 			};
 		});
 

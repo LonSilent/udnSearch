@@ -39,3 +39,4 @@ with ix.searcher() as searcher:
 	results = searcher.search(query)
 	for result in results:
 		print(result["title"])
+		print(result.highlights("content"))	

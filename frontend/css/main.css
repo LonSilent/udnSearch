@@ -15,17 +15,23 @@ body {
 
 p {
 	font-size: 16px;
+	line-height: 28px;
 }
 
-strong{
+h6 {
+	font-size: 18px;
+	margin: 15px 0;
+}
+
+strong {
 	font-weight: bold;
 }
 
-.sub_title{
-	margin:0 20px;
+.sub_title {
+	margin: 0 20px;
 	font-size: 18px;
 }
 
-.author{
-	font-size:16px;
+.author {
+	font-size: 16px;
 }
