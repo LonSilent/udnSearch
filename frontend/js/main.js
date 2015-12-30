@@ -1,4 +1,8 @@
-$('#toSearch').attr('required');
+$('#toSearch').keydown(function(e) {
+	if (e.keyCode == 13) {
+		submit();
+	}
+})
 
 function occurrences(string, subString, allowOverlapping) {
 
@@ -58,7 +62,7 @@ function submit() {
 			if (text[0] === "") {
 				console.log(".....");
 				$('#cardArea').append('<h4>' + '請輸入query' + '</h4>');
-			} else if (data.length === undefined) {
+			} else if (data.length === 1) {
 				$('#cardArea').append('<h4>' + '查無結果，請重新輸入query' + '</h4>');
 			} else {
 				// console.log(data.length);
