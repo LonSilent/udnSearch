@@ -11,14 +11,14 @@ A simple search engine implemented by whoosh, nodejs
 ##Required packages
 ```
 1. Install nodejs
-2. Install python3 & its package whoosh, jieba
+2. Install python3 & its packages whoosh, jieba
 ```
 ##Usage
 ```
 git clone https://github.com/LonSilent/udnSearch.git
 cd udnSearch
 node nodejs_backend/app.js
-localhost:3000 (type in browser)
+localhost:3000 (type in your browser)
 ```
 ##example url query
 ```
