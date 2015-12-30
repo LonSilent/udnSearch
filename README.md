@@ -1,11 +1,26 @@
 #udnSearch
+A simple search engine implemented by whoosh, nodejs
 
+##Features
+```
+1. simple search
+2. multiple words search (Default logic is OR)
+3. logic search: AND, OR, NOT
+4. simple proximity search
+```
 ##Required packages
 ```
-nodejs.python3
-python package: whoosh.jieba(please pip3 install)
+1. Install nodejs
+2. Install python3 & its package whoosh, jieba
 ```
-##example query
+##Usage
+```
+git clone https://github.com/LonSilent/udnSearch.git
+cd udnSearch
+node nodejs_backend/app.js
+localhost:3000 (type in browser)
+```
+##example url query
 ```
 http://localhost:3000/api?q=客家 小吃&m=normal
 http://localhost:3000/api?q=客家 小吃&m=proximity&d=3
