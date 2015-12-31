@@ -10,8 +10,10 @@ import chinese
 import os, glob, codecs, sys
 
 analyzer = chinese.ChineseAnalyzer()
-schema = Schema(title=TEXT(stored=True), sub_title=TEXT(stored=True),
-	author=TEXT(stored=True), content=TEXT(stored=True, analyzer=analyzer))
+schema = Schema(title=TEXT(stored=True, analyzer=analyzer), 
+	sub_title=TEXT(stored=True, analyzer=analyzer),
+	author=TEXT(stored=True, analyzer=analyzer), 
+	content=TEXT(stored=True, analyzer=analyzer))
 
 storage = FileStorage("indexdir")
 ix = storage.open_index()
