@@ -14,6 +14,7 @@ A simple search engine implemented by whoosh, nodejs
 2. Install python3 & its packages whoosh, jieba
 ```
 ##Usage
+Only test in Linux/Mac
 ```
 git clone https://github.com/LonSilent/udnSearch.git
 cd udnSearch
