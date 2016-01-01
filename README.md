@@ -21,6 +21,7 @@ cd udnSearch
 node nodejs_backend/app.js
 localhost:3000 (type in your browser)
 ```
+It still has some problem with Windows.
 ##example url query
 ```
 http://localhost:3000/api?q=客家 小吃&m=normal
