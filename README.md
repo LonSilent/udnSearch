@@ -17,7 +17,9 @@ A simple search engine implemented by whoosh, nodejs
 Only test in Linux/Mac
 ```
 git clone https://github.com/LonSilent/udnSearch.git
-cd udnSearch
+cd udnSearch/nodejs_backend
+npm install
+cd ..
 node nodejs_backend/app.js
 localhost:3000 (type in your browser)
 ```
