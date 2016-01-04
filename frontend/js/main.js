@@ -120,6 +120,8 @@ function submit() {
 				for (var i = 0; i < text.length; i++) {
 					$("p").jmHighlight(text[i], {});
 					$("span").jmHighlight(text[i], {});
+					$("h5").jmHighlight(text[i], {});
+					$("h6").jmHighlight(text[i], {});
 				}
 			}
 		}
