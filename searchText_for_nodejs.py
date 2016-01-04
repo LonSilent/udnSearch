@@ -29,7 +29,7 @@ if(normal is False):
 
 with ix.searcher() as searcher:
 	og = qparser.OrGroup.factory(0.9)
-	parser = MultifieldParser(["title", "sub_title", "author", "content"], schema=ix.schema, group=og)
+	parser = MultifieldParser(["title", "sub_title", "author", "content"], schema=ix.schema)
 	# parser = qparser.QueryParser("content", ix.schema)
 	parser.remove_plugin_class(qparser.PhrasePlugin)
 	parser.add_plugin(qparser.SequencePlugin())
@@ -48,7 +48,7 @@ with ix.searcher() as searcher:
 	results = searcher.search(query, limit=None)
 	results.fragmenter.maxchars = 100
 	# Show more context before and after
-	results.fragmenter.surround = 50
+	results.fragmenter.surround = 40
 	for result in results:
 		print(">>>>>> data start:")
 
