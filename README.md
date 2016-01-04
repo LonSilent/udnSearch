@@ -14,7 +14,7 @@ A simple search engine implemented by whoosh, nodejs
 2. Install python3 & its packages whoosh, jieba
 ```
 ##Usage
-Only test in Linux/Mac
+Run in Linux/Mac
 ```
 git clone https://github.com/LonSilent/udnSearch.git
 cd udnSearch/nodejs_backend
@@ -23,7 +23,11 @@ cd ..
 node nodejs_backend/app.js
 localhost:3000 (type in your browser)
 ```
-It still has some problem with Windows.
+If you run in Windows...(not recommended), change line 21 in api.js to 
+```
+var command = ['python', path.resolve(__dirname, '../searchText_for_nodejs.py'), '\"' + query + '\"', mode, distance].join(' ');
+```
+and change every '\n' to '\r\n' in stdout2json.js.
 ##example url query
 ```
 http://localhost:3000/api?q=客家 小吃&m=normal
