@@ -62,15 +62,11 @@ function submit() {
 		dataType: "json",
 		success: function(data) {
 			$('#cardArea').empty()
-				// console.log("GG");
-			console.log(data);
 			if (text[0] === "") {
-				console.log(".....");
 				$('#cardArea').append('<h4>' + '請輸入query' + '</h4>');
 			} else if (data.length === 1) {
 				$('#cardArea').append('<h4>' + '查無結果，請重新輸入query' + '</h4>');
 			} else {
-				// console.log(data.length);
 				$('#cardArea').append('<p>總共有<strong>' + data.length + '</strong>筆資料符合\"' + string + '\"的搜尋結果</p>');
 				if (text.length === 1) {
 					var queryOcurrence = 0;
@@ -80,7 +76,6 @@ function submit() {
 						queryOcurrence += occurrences(data[i].sub_title, text[0], true);
 						queryOcurrence += occurrences(data[i].author, text[0], true);
 					}
-					console.log(queryOcurrence);
 					$('#cardArea').append('<p>總共有<strong>' + queryOcurrence + '</strong>個\"' + text[0] + '\"出現在文本</p>');
 				}
 				for (var i = 0; i < data.length; i++) {
@@ -114,7 +109,6 @@ function submit() {
 				}
 
 				$('a').click(function() {
-					console.log(event.target.id.substring(6));
 					$('#modal' + event.target.id.substring(6)).openModal();
 				});
 				for (var i = 0; i < text.length; i++) {
