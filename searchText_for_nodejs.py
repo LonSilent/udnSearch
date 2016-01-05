@@ -28,7 +28,7 @@ if(normal is False):
 	_distance = int(sys.argv[3])
 
 with ix.searcher() as searcher:
-	og = qparser.OrGroup.factory(0.9)
+	# og = qparser.OrGroup.factory(0.9)
 	parser = MultifieldParser(["title", "sub_title", "author", "content"], schema=ix.schema)
 	# parser = qparser.QueryParser("content", ix.schema)
 	parser.remove_plugin_class(qparser.PhrasePlugin)

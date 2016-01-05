@@ -41,8 +41,7 @@ function submit() {
 		console.log(distance);
 		urlSearch = "/api?q=" + string.replace("/".concat(distance) + " ", "") +
 			"&m=proximity&d=" + distance;
-		var text = string.replace("/".concat(distance) + " ", "").replace(
-			"AND ", "").replace("OR ", "").split(" ");
+		var text = string.replace("/".concat(distance) + " ", "");
 		console.log(urlSearch);
 		console.log(text);
 	} else {
@@ -64,7 +63,7 @@ function submit() {
 			$('#cardArea').empty()
 			if (text[0] === "") {
 				$('#cardArea').append('<h4>' + '請輸入query' + '</h4>');
-			} else if (data.length === 1) {
+			} else if (data.length === 0 || data[0].content === undefined) {
 				$('#cardArea').append('<h4>' + '查無結果，請重新輸入query' + '</h4>');
 			} else {
 				$('#cardArea').append('<p>總共有<strong>' + data.length + '</strong>筆資料符合\"' + string + '\"的搜尋結果</p>');
