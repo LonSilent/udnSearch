@@ -17,7 +17,7 @@ storage = FileStorage("indexdir")
 ix = storage.open_index()
 writer = ix.writer()
 
-string = "桐花 樂團"
+string = "韓國"
 normal = False
 
 with ix.searcher() as searcher:
