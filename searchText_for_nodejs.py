@@ -45,6 +45,7 @@ with ix.searcher() as searcher:
 
 	# sys.stdout.buffer.write(query)
 	sys.stdout.buffer.write(">>>>>>OUTPUT start<<<<<<".encode('utf-8'))
+	# print(query)
 	results = searcher.search(query, limit=20)
 	results.fragmenter.maxchars = 100
 	# Show more context before and after
