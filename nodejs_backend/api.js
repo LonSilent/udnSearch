@@ -24,6 +24,7 @@ router.get('/', (req, res) => {
 	exec(command, {
 		maxBuffer: 10 * 1024 * 1024
 	}, (error, stdout, stderr) => {
+console.log(stdout)
 		if (error) {
 			res.json(error);
 		} else {

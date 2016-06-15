@@ -26,7 +26,6 @@ for path in allDir:
 	allFile = glob.glob('*.txt')
 	for everyFile in allFile:
 		if(everyFile[0] == 's'):
-			print(everyFile)
 			f = codecs.open(everyFile,'r','utf-8')
 			title = f.readline().replace('\n','')
 			sub_title = f.readline().replace('\n','')

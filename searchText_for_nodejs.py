@@ -43,34 +43,40 @@ with ix.searcher() as searcher:
 		proximty_query = "\"" + _string + "\"" + '~' + str((1+distance)*3)
 		query = parser.parse(proximty_query)
 
-	# print(query)
-	print(">>>>>>OUTPUT start<<<<<<")
-	results = searcher.search(query, limit=None)
+	# sys.stdout.buffer.write(query)
+	sys.stdout.buffer.write(">>>>>>OUTPUT start<<<<<<".encode('utf-8'))
+	results = searcher.search(query, limit=20)
 	results.fragmenter.maxchars = 100
 	# Show more context before and after
 	results.fragmenter.surround = 40
 	for result in results:
-		print(">>>>>> data start:")
 
-		print(">>>>>> title start:")
-		print(result["title"])
-		print(">>>>>> title end:")
+		sys.stdout.buffer.write(">>>>>> data start:".encode('utf-8'))
 
-		print(">>>>>> sub_title start:")
-		print(result["sub_title"])
-		print(">>>>>> sub_title end:")
+		sys.stdout.buffer.write(">>>>>> title start:".encode('utf-8'))
+		txt = result["title"].encode('utf-8')
+		sys.stdout.buffer.write(txt)
+		sys.stdout.buffer.write(">>>>>> title end:".encode('utf-8'))
 
-		print(">>>>>> author start:")
-		print(result["author"])
-		print(">>>>>> author end:")
+		sys.stdout.buffer.write(">>>>>> sub_title start:".encode('utf-8'))
+		txt = result["sub_title"].encode('utf-8')
+		sys.stdout.buffer.write(txt)
+		sys.stdout.buffer.write(">>>>>> sub_title end:".encode('utf-8'))
 
-		print(">>>>>> content start:")
-		print(result["content"])
-		print(">>>>>> content end:")
+		sys.stdout.buffer.write(">>>>>> author start:".encode('utf-8'))
+		txt = result["author"].encode('utf-8')
+		sys.stdout.buffer.write(txt)
+		sys.stdout.buffer.write(">>>>>> author end:".encode('utf-8'))
 
-		print(">>>>>> highlights start:")
-		print(result.highlights("content"))
-		print(">>>>>> highlights end:")
+		sys.stdout.buffer.write(">>>>>> content start:".encode('utf-8'))
+		txt = result["content"].encode('utf-8')
+		sys.stdout.buffer.write(txt)
+		sys.stdout.buffer.write(">>>>>> content end:".encode('utf-8'))
 
-		print(">>>>>> data end:")
-	print(">>>>>>OUTPUT end<<<<<<")
+		sys.stdout.buffer.write(">>>>>> highlights start:".encode('utf-8'))
+		txt = result.highlights("content").encode('utf-8')
+		sys.stdout.buffer.write(txt)
+		sys.stdout.buffer.write(">>>>>> highlights end:".encode('utf-8'))
+
+		sys.stdout.buffer.write(">>>>>> data end:".encode('utf-8'))
+	sys.stdout.buffer.write(">>>>>>OUTPUT end<<<<<<".encode('utf-8'))
