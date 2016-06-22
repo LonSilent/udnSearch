@@ -4,7 +4,7 @@ A simple search engine implemented by whoosh, nodejs
 ##Features
 ```
 1. simple search
-2. multiple words search (Default logic is OR)
+2. multiple words search (Default logic is AND)
 3. logic search: AND, OR, NOT
 4. simple proximity search
 ```
@@ -14,12 +14,14 @@ A simple search engine implemented by whoosh, nodejs
 2. Install python3 & its packages whoosh, jieba
 ```
 ##Usage
+### you should copy your corpus to the directory, and modify/run the createIndex.py to index documents.
 Run in Linux/Mac
 ```
 git clone https://github.com/LonSilent/udnSearch.git
 cd udnSearch/nodejs_backend
 npm install
 cd ..
+python3 createIndex.py (you may modify first)
 node nodejs_backend/app.js
 localhost:3000 (type in your browser)
 ```
